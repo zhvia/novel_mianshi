@@ -1,0 +1,153 @@
+#chapter_body{
+    position: relative;
+    width: 90%;
+    min-height: 1800px;
+    height: auto;
+    margin: auto;
+    top: 80px;
+}
+
+#chapter_book{
+    position: relative;
+    height: auto;
+    width: 100%;
+    min-height: 400px;
+    border: #35394a 2px solid;
+    border-radius: 6px;
+    box-shadow: #35394a 6px 6px;
+    background-color: bisque;
+}
+
+#book_img_div{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    top: 40px;
+    left: 40px;
+
+}
+
+#book_main_info{
+    width: 60%;
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    border: 2px #1B1B1B solid;
+
+}
+
+#comments{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    top: 30%;
+    margin: 15px;
+    border: #1B1B1B 2px solid;
+    border-radius: 8px;
+    box-shadow: #35394a 8px 8px;
+    text-align: left;
+}
+
+#comments_text{
+    position: absolute;
+    width: 81%;
+    height: 65px;
+    left: 20px;
+    top: 65px;
+}
+
+#comment_input_text{
+    position: absolute;
+    width: 80%;
+    height: 60px;
+    left: 10px;
+
+
+}
+
+#comment_button_div{
+    position: absolute;
+    width: 90px;
+    height: 70px;
+    margin: 30px auto;
+    right: 290px;
+    top: 50px;
+    text-align: center;
+}
+
+#comment_button{
+    width: 80px;
+    height: 40px;
+    border: #1B1B1B solid 1px;
+    border-radius: 15px;
+}
+
+
+
+#book_chapter{
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
+    border: #1B1B1B solid 2px;
+    /*overflow: hidden;*/
+    border-radius: 10px;
+    box-shadow: 6px 6px #35394a;
+    padding-bottom: 60px;
+}
+
+#comments_text_info{
+    position: absolute;
+    top: 31%;
+    left: 10px;
+
+}
+
+#chapter_ul{
+    list-style: none;
+}
+
+#chapter_ul li{
+    width: 400px;
+    height:28px;
+    line-height:28px;
+    white-space:nowrap;
+    margin-bottom: 20px;
+    display:block;
+    float:left;
+    text-align: center;
+}
+
+#chapter_ul li a{
+    text-decoration: none;  /*去掉a标签下面的横线*/
+    text-transform: uppercase;
+    color: black;
+    font-size: 20px;
+}
+
+#chapter_ul li a:hover{
+    color: #C4302B;
+}
+
+
+.index_paginator{
+    position: absolute;
+    width: 300px;
+    text-align: center;
+    left: 35%;
+    bottom: 100px;
+}
+
+.index_pagination li{
+    list-style: none;
+}
+
+.index_paginator a {
+    text-decoration: none;  /*去掉a标签下面的横线*/
+    text-transform: uppercase;
+    color: #181818;
+    font-weight: 700;
+}
+
+.index_paginator a:hover{
+    color: #C4302B;
+}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block set %}
+    <link rel="stylesheet"  href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block title %}小说网{% endblock %}
+
+
+{% block body %}
+        <div id="index_body">
+        {#  热搜页  #}
+        <div id="top">
+            <ul>
+                <li>
+                    推荐
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="body_div">
+            {% for book in page %}
+                <div class="body_info">
+                    <div id="book_ul">
+                        <ul class="body_ul">
+                            <li class="body_li" id="name">
+                                <a id="aaa" href="{% url 'chapter' book.book_num %}">{{ book.book_name }}</a>
+                            </li>
+                            <li class="body_li" id="author">
+                                <a href="#">{{ book.book_author }}</a>
+                            </li>
+                            <li class="body_li" id="hot">
+                                {{ book.book_hot }}
+                            </li>
+                            <li class="body_li" id="end">
+                                {{ book.get_book_end_display }}
+                            </li>
+                            <li class="body_li" id="end">
+                                <a href="#">{{ book.get_book_type_display }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="book_text">
+                        <p>{{ book.contr_text}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        <div class="index_paginator">   {# 分页导航的实现   #}
+                {% if page.has_previous %}
+                        <a href="?page={{ page.previous_page_number }}" aria-label="Previous">
+                             <span aria-hidden="true">上一页</span>
+                        </a>
+                {% endif %}
+                    {% for page_number in page.paginator.page_range %}
+                        {% if page_number == page.number %}
+                         <a href="?page={{ page_number }}">{{ page_number }}</a>
+                        {% else %}
+                           <a href="?page={{ page_number }}">{{ page_number }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page.has_next %}
+                            <a href="?page={{ page.next_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">下一页</span>
+                            </a>
+                    {% endif %}
+        </div>
+        </div>
+
+        </div>
+{% endblock%}

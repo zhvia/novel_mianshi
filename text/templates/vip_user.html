@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    会员注册
+{% endblock %}
+{% block set %}
+    <link rel="stylesheet" {% static "css/vip"  %}>
+{% endblock %}
+
+{% block body %}
+    <div style="position: absolute;width: 80%; left: 10%; top: 20%; text-align: center" >
+        <div>
+            <h1> 亲爱的 {{ user.username }}! 加入会员会更好！</h1>
+        </div>
+        <div>
+            <input type="button" onclick="window.location.href='vip/'" value="成为会员">
+        </div>
+    </div>
+{% endblock %}

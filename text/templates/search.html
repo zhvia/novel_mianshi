@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block set %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+{% block body %}
+    <div id="div_main">
+        {% for book in books %}
+            <div class="seach_info">
+                <div class="img_div">
+                    <img class="book_img" src="{{ book.book_img.url }}">
+                </div>
+                <div class="book_text">
+                    <ul class="search_ul">
+                        <li class="name">
+                            <a class="aaa" href="#">{{ book.book_name }}</a>
+                        </li>
+                        <li class="author">
+                            <a href="#">{{ book.book_author }}</a>
+                        </li>
+                        <li class="hot">
+                            {{ book.book_hot }}
+                        </li>|
+                        <li class="end">
+                            {{ book.get_book_end_display }}
+                        </li>|
+                        <li class="end">
+                            <a href="#">{{ book.get_book_type_display }}</a>
+                        </li>
+                        <div>
+                            <p>{{ book.contr_text}}</p>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+body{
+    background: #4E546D;
+
+}
+
+#body_div{
+    position: absolute;
+    width: 75%;
+    height: auto;
+    right: 30px;
+    padding-bottom: 300px;
+    background-color: #35394a;
+}
+
+
+#top{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    left: 30px;
+    /*border: 3px solid #C4302B;*/
+    background-color: #35394a;
+}
+
+.body_info{
+    float: left;
+    width: 23%;
+    height: 30%;
+    margin: 3%;
+    border: 1px solid #35394a;
+    box-shadow: #1c1c1c 6px 6px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+
+#index_body{
+    position: relative;
+    width: 100%;
+    min-height: 1200px;
+    top: 100px;
+}
+
+
+.body_li{
+    width: 250px;
+    list-style: none; /*去掉li标签前面的圈圈*/
+     /*display: inline; !*  在一行显示 *!*/
+
+    padding: 5px;
+}
+
+#name{
+    font-size: 20px;
+    font-style: initial;
+}
+
+
+#end,#hot{
+    display: inline;
+    font-size: 10px;
+    color: #1c1c1c;
+}
+
+.body_ul .body_li a{
+    border-left: 3px solid rgba(0, 0, 0, 0);
+    color: #181818;
+    /*display: block;*/
+    font-size: 16px;
+    transition: 0.5s;
+    text-decoration: none;  /*去掉a标签下面的横线*/
+    text-transform: uppercase;
+}
+
+#book_text{
+    padding: 6px;
+    text-align: left;
+    bottom: 10%;
+}
+
+
+
+.body_ul .body_li a:hover{
+    color: #C4302B;
+}
+
+
+p{
+    text-indent: 2em;
+}
+
+
+.index_paginator{
+    position: absolute;
+    width: 300px;
+    text-align: center;
+    left: 30%;
+    bottom: 150px;
+}
+
+.index_pagination li{
+    list-style: none;
+}
+
+.index_paginator a {
+    text-decoration: none;  /*去掉a标签下面的横线*/
+    text-transform: uppercase;
+    color: #d5d8e2;
+}
+
+.index_paginator a:hover{
+    color: #C4302B;
+}

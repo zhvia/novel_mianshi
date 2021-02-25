@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block set %}
+    <link rel="stylesheet" href="{% static 'css/chapter_info.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div id="chapter_text">
+    <p>
+        <a href="/">首页</a>
+        <a>> {{ chapter_infos.books.get_book_type_display }}></a>
+        <a  href="{% url 'chapter' chapter_infos.books.book_num %}">{{ chapter_infos.books.book_name }}</a>
+        <a> >{{ chapter_infos.first.chapters }}</a>
+    </p>
+    <h1>{{ chapters }}</h1>
+    <h2 style="color: red">{{ message }}</h2>
+    <pre>{{ text }}</pre>
+    {% if user.first.is_vip == '1' %}
+        <div style="width: 400px;text-align: center; height: 280px; background-color: #61BFFF;position: absolute;top: 30%;left: 30%">
+            <h3>非会员阅读不了本章节哦</h3>
+            <input type="button" value="加入会员请点击" onclick="window.location.href={% url 'vip' %}">
+        </div>
+    {% endif %}
+    </div>
+
+{% endblock %}

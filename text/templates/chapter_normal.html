@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block set %}
+    <link rel="stylesheet" href="{% static 'css/book_chapter.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div id="chapter_body">
+
+        <div id="head" >
+            <p>
+                <a href="/">首页</a>
+                <a>>{{ book.get_book_type_display }}></a>
+                <a>{{ book.book_name }}</a> </p>
+        </div>
+
+        <div id="chapter_book">
+            <div id="book_img_div">
+                <img class="book_img" src="{{book.book_img.url}}">
+            </div>
+
+            <div id="book_main_info">
+                <div id="book_info">
+                    <h1>{{ book.book_name }}</h1>
+                    <p>作&nbsp;&nbsp;&nbsp;&nbsp;者： {{ book.book_author }}</p>
+                    <p>{{ book.get_book_type_display }} | {{ book.get_book_end_display }}</p>
+                </div>
+                <div id="book_text_info">
+                    <p>{{ book.book_info }}</p>
+                </div>
+                <p><input type="button" value="加入书架" onclick="window.location.href={% url 'my_book' book.book_num %}"></p>
+
+            </div>
+        </div>
+
+        <div id="comments">
+            <div style="margin: 20px">
+                <h3>这里可以进行评论:</h3>
+            </div>
+            <div id="comments_text">
+                <textarea id="comment_input_text" maxlength="200" placeholder="这里可以输入您的评论，最多200字"></textarea>
+            </div>
+
+            <div id="comment_button_div">
+                <input id="comment_button" type="button" value="评论">
+            </div>
+
+            <div id="comments_text_info">这里是评论</div>
+        </div>
+
+        <div id="book_chapter">
+            <ul id="chapter_ul">
+                {% for book_chapter in page %}
+                    <li><a href="{% url 'chapter_info' book_chapter.books_id  book_chapter.id %}">{{ book_chapter.chapters }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="index_paginator">   {# 分页导航的实现   #}
+                {% if page.has_previous %}
+                        <a href="?page={{ page.previous_page_number }}" aria-label="Previous">
+                             <span aria-hidden="true">上一页</span>
+                        </a>
+                {% endif %}
+                    {% for page_number in page.paginator.page_range %}
+                        {% if page_number == page.number %}
+                         <a href="?page={{ page_number }}">{{ page_number }}</a>
+                        {% else %}
+                           <a href="?page={{ page_number }}">{{ page_number }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page.has_next %}
+                            <a href="?page={{ page.next_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">下一页</span>
+                            </a>
+                    {% endif %}
+        </div>
+    </div>
+{% endblock %}

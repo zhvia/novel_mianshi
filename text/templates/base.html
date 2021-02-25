@@ -1,0 +1,90 @@
+{% load staticfiles %}
+<!DOCTYPE >
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    {% block set %}
+    {% endblock %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+<div id="base_main">
+
+    {#首页搜索栏#}
+    <div class="title">
+        <a href="/">
+            <div id="img_bird">
+            </div>
+        </a>
+        <form method="post" id="search" action="{% url 'search' %}">
+            {% csrf_token %}
+            <input type="text" required  name="search_input" placeholder="仙逆" id="search_input">
+            <input type="submit" id="search_button"  value="搜索" >
+        </form>
+
+        <div id="user_room">
+            <input type="button" id="my_zone" onclick="window.location.href='{% url 'my_zone' %}'" value="个人中心">
+            <input type="button" id="my_book" value="我的书架" onclick="window.location.href='{% url 'my_book'  %}'">
+            <input type="button" id="logout" value="注销" onclick="window.location.href='{% url 'logout' %}'">
+            <input type="button" id="login" value="登录" onclick="window.location.href='{% url 'login' %}'">
+
+        </div>
+    </div>
+    {##}
+    {#<div id="user_room">#}
+    {##}
+    {#</div>#}
+
+    <div class="container" id="main" style="width: 100%">
+        <ul class="menu" style="width: 100%">
+            <li><a href="/">首页</a></li>
+            <li><a href="#s1">分类</a>
+                <ul class="submenu">
+                    <li><a href="#">玄幻修真</a></li>
+                    <li><a href="#">仙侠武侠</a></li>
+                    <li><a href="#">历史军事</a></li>
+                    <li><a href="#">科幻游戏</a></li>
+                    <li><a href="#">悬疑灵幻</a></li>
+                    <li><a href="#">二次元</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="#s2">书库</a>
+            </li>
+            <li><a href="#">排行</a>
+                <ul class="submenu">
+                    <li><a href="#">按热度</a></li>
+                    <li><a href="#">按人气</a></li>
+                    <li><a href="#">作者欢迎度</a></li>
+                </ul>
+            </li>
+            <li><a href="#">完本</a></li>
+            <li><a href="#">短篇小说</a></li>
+            <li><a href="#">作家专区</a></li>
+            <li><a href="#">充值</a></li>
+            <li><a href="{% url 'my_zone' %}">个人中心</a></li>
+        </ul>
+    </div>
+
+    {# 需要写的内容  #}
+
+    {% block body %}
+    {% endblock %}
+
+
+
+    <div id="base_end" >
+        <h3>加入小说网，与您携手同行</h3>
+        <ul id="footer_ul">
+            <li>作者: 郑炜</li>
+            <li>联系方式: 1175665684</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

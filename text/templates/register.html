@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>注册界面</title>
+
+</head>
+
+<body>
+<div class='login'>
+    <div class='login_title'>
+        <span>用户注册</span>
+    </div>
+    <form id="register_form" action="" method="post">
+        <div class='login_fields'>
+            {% csrf_token %}
+            <div style="text-align: center">
+                <a id="msg_name" >{{ register_message }}</a>
+            </div>
+            <div class='login_fields__user'>
+                <div class='icon'>
+                    <img alt="" src='{% static "image/user_icon_copy.png" %}  '>
+                </div>
+                <div id="name_div">
+                    <input type="text" name="register_username" id="id_name" placeholder="用户名">
+                </div>
+                <div class='validation'>
+                    <img alt="" src='{% static "image/tick.png"  %}'>
+                </div>
+            </div>
+            <div class='login_fields__password'>
+                <div style="text-align: center">
+                    <a id="msg_psw"></a>
+                </div>
+                <div class='icon'>
+                    <img alt="" src='{% static "image/lock_icon_copy.png"  %}'>
+
+                </div>
+                <div id="psw_div">
+                    <input type="password" name="register_password" id="id_psw" placeholder="密码">
+                </div>
+
+                <div class='validation' >
+                    <img alt="" src='{% static "image/tick.png"  %}'>
+                </div>
+            </div>
+            <div class='login_fields__password'>
+                <div style="text-align: center">
+                    <a id="msg_re_psw"></a>
+                </div>
+                <div class='icon'>
+                    <img alt="" src='{% static "image/lock_icon_copy.png"  %}'>
+
+                </div>
+                <div id="re_psw_div">
+                    <input type="password" name="register_re_password" id="re_psw" placeholder="重复密码">
+                </div>
+
+                <div class='validation' >
+                    <img alt="" src='{% static "image/tick.png"  %}'>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <a id="msg_code">{{ register_message_code }}</a>
+            </div>
+            <div class='login_fields__password'>
+                <div class='icon'>
+                    <img alt="" src='{% static "image/tick.png"  %}'>
+                </div>
+                    <input id="code_input" name="register_code" placeholder='验证码' maxlength="4" type='text'>
+                <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
+                    <img src="/img/" class="login_code" onclick="ChangeCode(this);">
+                </div>
+            </div>
+            <div class='login_fields__submit'>
+                <input type='submit' id="register_button" value='注册'>
+            </div>
+
+        </div>
+    </form>
+    <div class='disclaimer'>
+        <p><a id="index_a" href="login/">返回登录</a></p>
+        <p>欢迎登陆小说网</p>
+    </div>
+</div>
+<span></span>
+
+
+<script type="text/javascript">
+    function ChangeCode(ths) {
+        ths.src = ths.src + '?'
+    }
+
+
+</script>
+</body>
+
+</html>

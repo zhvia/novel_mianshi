@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block set %}
+    <link rel="stylesheet" href="{% static 'css/zone.css' %}">
+    <script rel="script" src="{% static 'js/zone.js' %}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div id="zone_div">
+        <img id="header_pic" src="{{ user_obj.userinfo.header_pic.url }}">
+        <form action="/my_zone/" method="post" id="my_zone_form" >
+        <input type="file" style="width: 200px; margin-left: 10% " name="head_img">
+            {% csrf_token %}
+
+            {#        # 姓名    #}
+            <div><span>昵称: </span><input id="name" name="name" disabled type="text" value="{{ name }}"></div>
+
+            {#        # 性别     #}
+            <div>
+                <span>性别: </span>
+                <select name="gender" class="select" disabled>
+                    {% for gender1 in user_obj.userinfo.genders %}
+                        {% if gender1.0 ==  user_obj.userinfo.gender %}
+                        <option selected value="{{ gender1.0 }}">{{ gender1.1 }}</option>
+                        {% else %}
+                            <option value="{{ gender1.0 }}">{{ gender1.1 }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+
+            {#         地址     #}
+            <div>
+
+                <span>地址: </span>
+                <select name="address" class="select"  disabled>
+                    {% for address in user_obj.userinfo.addresses %}
+                        {% if address.0 ==  user_obj.userinfo.address %}
+                        <option selected value="{{ address.0 }}">{{ address.1 }}</option>
+                        {% else %}
+                        <option value="{{ address.0 }}">{{ address.1 }}</option>
+                        {% endif %}
+
+                    {% endfor %}
+                </select>
+            </div>
+
+            {#        # 电话    #}
+            <div><span>电话: </span><input id="phone" name="phone" disabled type="text" value="{{ phone }}"></div>
+
+            {#    按钮      #}
+            <div>
+                <input type="button" id="zone_button" value="编辑">
+                <input type="submit" id="zone_submit" disabled value="确定">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

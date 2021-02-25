@@ -1,0 +1,52 @@
+#zone_div{
+    position: relative;
+    width: 60%;
+    height: 550px;
+    margin: 10% auto;
+    padding-top: 5%;
+    text-align: center;
+    background-color: #35394a;
+}
+
+
+#my_zone_form {
+    position: absolute;
+    padding-top: 4%;
+    left: 10%;
+    height: auto;
+    width: 80%;
+}
+
+
+#my_zone_form select{
+    width: 30%;
+    height: 30px;
+    margin: 10px;
+}
+
+#my_zone_form #name {
+    width: 29.7%;
+    height: 30px;
+    margin: 10px;
+}
+
+#my_zone_form #phone {
+    width: 29.7%;
+    height: 30px;
+    margin: 10px;
+}
+
+#zone_button{
+    width: 5%;
+    margin: 10px;
+    border: #181818 4px;
+    border-radius: 2px;
+    box-shadow: #181818 2px 2px;
+}
+
+#header_pic{
+    width: 100px;
+    height: 80px;
+    border: #35394a 2px solid;
+    border-radius: 100px;
+}

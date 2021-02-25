@@ -1,0 +1,25 @@
+#chapter_text{
+    width: 80%;
+    height: auto;
+    min-height: 1200px;
+    padding: 20px;
+    margin: 10% auto 30px;
+    background-color: aliceblue;
+    border: grey 2px solid;
+    text-align: center;
+}
+
+pre{
+    width: 80%;
+    height: auto;
+    min-height: 1200px;
+    white-space: pre-wrap; /*css-3*/
+    word-wrap: break-word; /*InternetExplorer5.5+*/
+    font-size: 16px;
+    padding-top: 30px;
+}
+
+h1{
+    text-align: center;
+    padding-top: 20px;
+}
